@@ -1,42 +1,41 @@
-/* ========== BASE — 漆黒と紅の所作 ========== */
+/* ========== BASE ========== */
 
 body {
   font-family: var(--font-body);
   font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
+  line-height: var(--line-height-body);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-color: var(--color-dark);
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'palt' 1;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   line-height: var(--line-height-tight);
-  color: var(--color-dark);
-  font-feature-settings: 'palt' 1, 'kern' 1;
+  color: var(--color-white);
+  font-weight: 400;
 }
 
 p { margin-bottom: var(--space-md); }
 p:last-child { margin-bottom: 0; }
 
 a {
-  transition: color var(--transition-fast);
+  color: inherit;
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 a:hover { color: var(--color-primary); }
 
-img { height: auto; }
+img { height: auto; max-width: 100%; }
 
-/* no-scroll utility */
 body.no-scroll { overflow: hidden; }
 
-/* Focus visible — 紅の輪郭 */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
+  outline: 1px solid var(--color-primary);
+  outline-offset: 4px;
 }
 
 .sr-only {
@@ -45,9 +44,11 @@ body.no-scroll { overflow: hidden; }
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* ========== SECTIONS — 呼吸する余白 ========== */
+/* ========== SECTIONS ========== */
 .section {
   padding: var(--space-5xl) 0;
+  background: var(--color-bg);
+  position: relative;
 }
 
 .section-alt {
@@ -58,76 +59,87 @@ body.no-scroll { overflow: hidden; }
 .section-alt h2, .section-alt h3 { color: var(--color-white); }
 
 .section-title {
-  font-family: var(--font-display);
-  font-size: var(--font-size-4xl);
-  text-align: center;
-  margin-bottom: var(--space-sm);
-  letter-spacing: 0.08em;
-  font-weight: 900;
+  font-family: var(--font-en);
+  font-size: var(--font-size-5xl);
+  text-align: left;
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-dark);
+  opacity: 0.12;
+  position: absolute;
+  top: var(--space-3xl);
+  left: var(--container-padding);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.section-alt .section-title {
+  color: var(--color-white);
+  opacity: 0.06;
 }
 
 .section-subtitle {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-sm);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
   color: var(--color-text-light);
-  text-align: center;
-  margin-bottom: var(--space-4xl);
-  letter-spacing: 0.2em;
-  font-weight: 200;
+  text-align: left;
+  margin-bottom: var(--space-3xl);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 3rem;
 }
 
-.section-alt .section-subtitle { color: oklch(0.98 0.003 60 / 0.5); }
-
-/* 金線 — 繊細な仕切り */
-.gold-line {
-  display: block;
-  width: 60px;
+.section-subtitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2rem;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-  margin: var(--space-lg) auto var(--space-3xl);
+  background: var(--color-primary);
 }
+
+.section-alt .section-subtitle {
+  color: oklch(0.98 0.003 60 / 0.4);
+}
+
+.section-alt .section-subtitle::before {
+  background: oklch(0.55 0.22 15 / 0.5);
+}
+
+.gold-line { display: none; }
 
 /* ========== PAGE HERO ========== */
 .page-hero {
   background-color: var(--color-dark);
   color: var(--color-white);
-  padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-4xl);
-  text-align: center;
+  padding: calc(var(--header-height) + var(--space-5xl)) 0 var(--space-4xl);
   position: relative;
   overflow: hidden;
 }
 
-.page-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 80%, oklch(0.55 0.22 15 / 0.08), transparent 70%);
-  pointer-events: none;
-}
-
 .page-hero h1 {
   color: var(--color-white);
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   margin-bottom: var(--space-md);
-  font-weight: 900;
-  position: relative;
 }
 
 .page-hero p {
-  color: oklch(0.98 0.003 60 / 0.6);
-  font-size: var(--font-size-lg);
-  font-family: var(--font-accent);
-  letter-spacing: 0.1em;
-  font-weight: 200;
-  position: relative;
+  color: oklch(0.98 0.003 60 / 0.4);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.2em;
+  font-weight: 300;
 }
 
 /* ========== BREADCRUMB ========== */
 .breadcrumb {
   font-size: var(--font-size-xs);
-  color: oklch(0.98 0.003 60 / 0.4);
+  color: oklch(0.98 0.003 60 / 0.3);
   margin-top: var(--space-xl);
-  position: relative;
 }
 
 .breadcrumb ol {
@@ -135,32 +147,33 @@ body.no-scroll { overflow: hidden; }
   flex-wrap: wrap;
   gap: 0;
   align-items: center;
-  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .breadcrumb li + li::before {
-  content: "―";
+  content: "/";
   margin: 0 var(--space-sm);
-  color: oklch(0.98 0.003 60 / 0.3);
+  color: oklch(0.98 0.003 60 / 0.2);
 }
 
-.breadcrumb a { color: oklch(0.98 0.003 60 / 0.5); }
+.breadcrumb a { color: oklch(0.98 0.003 60 / 0.4); }
 .breadcrumb a:hover { color: var(--color-primary); }
 .breadcrumb li:last-child span { color: var(--color-primary); }
 
 .text-center { text-align: center; }
 
-.section-bg-2 { background: var(--color-bg-2); }
+.section-bg-2 {
+  background: var(--color-bg-2);
+}
 
-/* ========== FADE-IN — 静かな出現 ========== */
+/* ========== FADE-IN ========== */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0, 0, 1),
-              transform 0.8s cubic-bezier(0.25, 0, 0, 1);
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fade-in.visible {
@@ -168,21 +181,8 @@ body.no-scroll { overflow: hidden; }
   transform: none;
 }
 
-/* staggered children */
-.fade-in-stagger > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.25, 0, 0, 1),
-              transform 0.6s cubic-bezier(0.25, 0, 0, 1);
-}
-
-.fade-in-stagger.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: none; }
-.fade-in-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: none; }
-.fade-in-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: none; }
-.fade-in-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: none; }
-
 /* ========== UTILITY ========== */
-.container-narrow { max-width: 800px; }
+.container-narrow { max-width: var(--container-narrow); }
 
 .icon-inline {
   display: inline;

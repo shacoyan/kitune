@@ -1,37 +1,35 @@
-/* ========== FAQ — 問と答 ========== */
-.faq-category { margin-bottom: var(--space-4xl); }
+/* ========== FAQ ========== */
+.faq-category { margin-bottom: var(--space-3xl); }
 
 .faq-category-title {
   font-family: var(--font-display);
   font-size: var(--font-size-xl);
   color: var(--color-dark);
-  font-weight: 900;
   margin-bottom: var(--space-xl);
   padding-bottom: var(--space-md);
-  border-bottom: 1px solid oklch(0.55 0.22 15 / 0.2);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
 }
 
-.faq-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.faq-list { display: flex; flex-direction: column; gap: 0; }
 
 .faq-item {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: transparent;
+  border-bottom: 1px solid var(--color-border);
   overflow: hidden;
-  transition: border-color var(--transition-fast);
 }
 
-.faq-item.open {
-  border-color: oklch(0.55 0.22 15 / 0.2);
-}
+.faq-item:first-child { border-top: none; }
+
+.faq-item.open { background: var(--color-bg-2); }
 
 .faq-question {
   display: flex;
   align-items: flex-start;
   gap: var(--space-md);
-  padding: var(--space-lg) var(--space-xl);
+  padding: var(--space-lg) 0;
   cursor: pointer;
   background: none;
   width: 100%;
@@ -39,80 +37,78 @@
   border: none;
   color: var(--color-dark);
   font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  transition: background var(--transition-fast);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+  transition: none;
 }
 
-.faq-question:hover { background: var(--color-bg-2); }
-.faq-item.open .faq-question { background: var(--color-bg-2); }
+.faq-question:hover { background: transparent; }
+.faq-item.open .faq-question { padding: var(--space-lg); }
 
 .faq-q-icon {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  background: var(--color-primary);
+  width: 24px;
+  height: 24px;
+  background: var(--color-dark);
   color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: var(--font-size-sm);
+  font-family: var(--font-en);
+  font-size: var(--font-size-xs);
+  font-style: italic;
   margin-top: 2px;
 }
 
-.faq-question-text {
-  flex: 1;
-  font-weight: 700;
-}
+.faq-question-text { flex: 1; font-weight: 500; }
 
 .faq-toggle {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   position: relative;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .faq-toggle::before, .faq-toggle::after {
   content: '';
   position: absolute;
-  background: var(--color-primary);
+  background: var(--color-text-light);
   transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
 .faq-toggle::before { width: 100%; height: 1px; top: 50%; transform: translateY(-50%); }
 .faq-toggle::after { width: 1px; height: 100%; left: 50%; transform: translateX(-50%); }
 
-.faq-item.open .faq-toggle::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+.faq-item.open .faq-toggle::after { opacity: 0; }
 
 .faq-answer {
   display: none;
-  padding: 0 var(--space-xl) var(--space-lg);
-  border-top: 1px solid var(--color-border);
+  padding: 0 var(--space-lg) var(--space-lg);
+  border-top: none;
 }
 
-.faq-item.open .faq-answer { display: flex; gap: var(--space-md); align-items: flex-start; padding-top: var(--space-lg); }
+.faq-item.open .faq-answer { display: flex; gap: var(--space-md); align-items: flex-start; padding-top: 0; }
 
 .faq-a-icon {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  background: var(--color-dark);
-  color: var(--color-primary);
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: var(--font-size-sm);
+  font-family: var(--font-en);
+  font-size: var(--font-size-xs);
+  font-style: italic;
   margin-top: 2px;
 }
 
 .faq-answer-text {
   flex: 1;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   color: var(--color-text-light);
-  line-height: var(--line-height-base);
+  line-height: var(--line-height-body);
+  font-weight: 300;
 }

@@ -1,119 +1,118 @@
-/* ========== FILTER — 選び取る ========== */
+/* ========== FILTER ========== */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  justify-content: center;
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-3xl);
 }
 
 .filter-btn {
-  padding: var(--space-sm) var(--space-xl);
+  padding: var(--space-sm) var(--space-lg);
   border: 1px solid var(--color-border);
-  background: var(--color-white);
-  font-family: var(--font-accent);
+  background: transparent;
+  font-family: var(--font-body);
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
   cursor: pointer;
   transition: all var(--transition-fast);
   letter-spacing: 0.1em;
+  font-weight: 300;
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: var(--color-dark);
+  border-color: var(--color-dark);
   color: var(--color-white);
 }
 
-/* ========== FLAVOR GRID — 煙の道標 ========== */
+/* ========== FLAVOR GRID ========== */
 .flavor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--space-lg);
-  margin-bottom: var(--space-5xl);
+  gap: 1px;
+  background: var(--color-border);
+  margin-bottom: var(--space-4xl);
 }
 
 .flavor-card {
   background: var(--color-white);
   padding: var(--space-lg);
-  border: 1px solid var(--color-border);
-  transition: all var(--transition-base);
+  border: none;
+  transition: background var(--transition-fast);
 }
 
-.flavor-card:hover {
-  border-color: var(--color-primary);
-}
-
+.flavor-card:hover { background: var(--color-bg-2); }
 .flavor-card.hidden { display: none; }
 
 .flavor-name {
   font-family: var(--font-display);
   font-size: var(--font-size-base);
-  font-weight: 700;
   color: var(--color-dark);
   margin-bottom: var(--space-xs);
 }
 
 .flavor-name-en {
+  font-family: var(--font-en);
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
-  font-family: var(--font-accent);
   margin-bottom: var(--space-sm);
-  letter-spacing: 0.05em;
+  font-style: italic;
 }
 
 .flavor-desc {
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
-  line-height: 1.6;
+  line-height: 1.8;
+  font-weight: 300;
 }
 
-/* ========== DRINK / FOOD — 品書き ========== */
+/* ========== MENU SECTIONS ========== */
 .menu-section-title {
-  font-family: var(--font-display);
-  font-size: var(--font-size-2xl);
+  font-family: var(--font-en);
+  font-size: var(--font-size-3xl);
   color: var(--color-dark);
   margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid oklch(0.55 0.22 15 / 0.2);
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.15;
 }
 
 .menu-list {
   display: flex;
   flex-direction: column;
   gap: 0;
-  border: 1px solid var(--color-border);
-  overflow: hidden;
+  border-top: 1px solid var(--color-border);
 }
 
 .menu-list-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: var(--space-md) var(--space-xl);
+  align-items: baseline;
+  padding: var(--space-md) 0;
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-white);
+  background: transparent;
   gap: var(--space-lg);
 }
 
-.menu-list-item:last-child { border-bottom: none; }
+.menu-list-item:last-child { border-bottom: 1px solid var(--color-border); }
 
 .menu-item-name {
   font-family: var(--font-body);
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-dark);
 }
 .menu-item-desc {
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
   margin-top: 2px;
+  font-weight: 300;
 }
 .menu-item-price {
-  font-family: var(--font-display);
+  font-family: var(--font-en);
   font-size: var(--font-size-lg);
-  font-weight: 900;
-  color: var(--color-primary);
+  color: var(--color-text);
   white-space: nowrap;
+  font-style: italic;
 }
 
 /* ========== MENU CONTENT GRID ========== */
@@ -125,44 +124,40 @@
   margin-bottom: var(--space-5xl);
 }
 
-.menu-content-grid:last-child {
-  margin-bottom: 0;
-}
+.menu-content-grid:last-child { margin-bottom: 0; }
 
 .menu-section-img {
   width: 100%;
-  height: 360px;
+  height: 400px;
   object-fit: cover;
-  box-shadow: var(--shadow-md);
+  filter: brightness(0.9);
 }
 
 .menu-section-desc {
   color: var(--color-text-light);
   margin-bottom: var(--space-2xl);
-  line-height: 2;
+  line-height: 2.2;
+  font-weight: 300;
 }
 
 .menu-highlight-banner {
-  background: var(--color-primary);
+  background: var(--color-dark);
   color: var(--color-white);
   padding: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-xl);
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.05em;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  font-weight: 400;
 }
+
+.mt-3xl { margin-top: var(--space-3xl); }
 
 @media (max-width: 768px) {
   .flavor-grid { grid-template-columns: repeat(2, 1fr); }
   .menu-list-item { flex-direction: column; align-items: flex-start; }
   .menu-drink-grid, .menu-food-grid { grid-template-columns: 1fr !important; }
   .menu-drink-grid img,
-  .menu-food-grid img {
-    height: 240px;
-    width: 100%;
-    object-fit: cover;
-  }
+  .menu-food-grid img { height: 240px; width: 100%; object-fit: cover; }
   .menu-content-grid { grid-template-columns: 1fr; }
 }
 

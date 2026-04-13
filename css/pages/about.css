@@ -1,8 +1,8 @@
-/* ========== ABOUT — 狐の物語 ========== */
+/* ========== ABOUT ========== */
 .about-concept {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-4xl);
+  gap: var(--space-3xl);
   align-items: center;
   margin-bottom: var(--space-5xl);
 }
@@ -11,38 +11,38 @@
   font-family: var(--font-display);
   font-size: var(--font-size-3xl);
   margin-bottom: var(--space-lg);
-  font-weight: 900;
-  letter-spacing: 0.05em;
+  color: var(--color-dark);
 }
 
 .about-concept-text p {
   color: var(--color-text-light);
-  line-height: 2;
+  font-weight: 300;
+  line-height: 2.2;
 }
 
 .about-concept-img {
   width: 100%;
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
+  background: var(--color-dark);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: oklch(0.55 0.22 15 / 0.3);
   font-size: 4rem;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
+  gap: 2px;
 }
 
 .gallery-item {
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
+  background: var(--color-dark);
   overflow: hidden;
   position: relative;
 }
@@ -50,71 +50,74 @@
 .gallery-item img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: brightness(0.85);
 }
 
-.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item:hover img {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
 
 .gallery-placeholder {
   width: 100%; height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: oklch(0.55 0.22 15 / 0.3);
+  color: oklch(0.55 0.22 15 / 0.15);
   font-size: 2rem;
 }
 
 .staff-message {
   background: var(--color-dark);
   color: var(--color-white);
-  padding: var(--space-4xl);
-  text-align: center;
+  padding: var(--space-5xl) var(--space-3xl);
   position: relative;
 }
 
 .staff-message::before {
   content: '"';
-  font-family: var(--font-display);
-  font-size: 10rem;
-  color: oklch(0.55 0.22 15 / 0.08);
+  font-family: var(--font-en);
+  font-size: 12rem;
+  color: oklch(0.55 0.22 15 / 0.06);
   position: absolute;
-  top: -20px;
-  left: var(--space-2xl);
+  top: 0;
+  left: var(--space-xl);
   line-height: 1;
+  font-style: italic;
 }
 
 .staff-message blockquote {
-  font-family: var(--font-body);
-  font-size: var(--font-size-lg);
-  color: oklch(0.98 0.003 60 / 0.8);
-  line-height: 2;
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: oklch(0.98 0.003 60 / 0.7);
+  line-height: 2.2;
   margin-bottom: var(--space-xl);
   position: relative;
   z-index: 1;
+  max-width: 600px;
 }
 
 .staff-message cite {
   font-style: normal;
-  color: var(--color-primary);
-  font-family: var(--font-accent);
-  font-size: var(--font-size-sm);
-  letter-spacing: 0.1em;
+  color: oklch(0.98 0.003 60 / 0.3);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  font-weight: 300;
 }
 
-.gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.gallery-img { width: 100%; height: 100%; object-fit: cover; }
 
 .subsection-title {
   font-family: var(--font-display);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-xl);
-  font-weight: 700;
+  color: var(--color-dark);
 }
 
 @media (max-width: 768px) {
   .about-concept { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-concept-img { height: 300px; }
 }

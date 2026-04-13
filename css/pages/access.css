@@ -1,8 +1,8 @@
-/* ========== ACCESS — 道しるべ ========== */
+/* ========== ACCESS ========== */
 .access-layout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-4xl);
+  gap: var(--space-3xl);
   align-items: start;
 }
 
@@ -10,7 +10,6 @@
   width: 100%;
   aspect-ratio: 4/3;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
 }
 
 .map-embed iframe { width: 100%; height: 100%; border: 0; }
@@ -20,9 +19,8 @@
 .access-block h3 {
   font-family: var(--font-display);
   font-size: var(--font-size-lg);
-  color: var(--color-primary);
+  color: var(--color-dark);
   margin-bottom: var(--space-md);
-  font-weight: 700;
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -32,6 +30,7 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
   line-height: 2;
+  font-weight: 300;
 }
 
 .access-block ul { padding-left: var(--space-lg); }
@@ -39,6 +38,8 @@
 
 .access-block a { color: var(--color-primary); }
 .access-block a:hover { text-decoration: underline; }
+
+.icon-inline { display: inline; vertical-align: middle; margin-right: 6px; }
 
 .access-contact-section {
   background: var(--color-dark);
@@ -50,21 +51,10 @@
   text-align: center;
 }
 
-.access-contact-title {
-  font-family: var(--font-display);
-  color: var(--color-primary);
-  margin-bottom: var(--space-md);
-}
-.access-contact-description {
-  color: oklch(0.98 0.003 60 / 0.6);
-  margin-bottom: var(--space-xl);
-}
+.access-contact-title { color: var(--color-white); margin-bottom: var(--space-md); }
+.access-contact-description { color: oklch(0.98 0.003 60 / 0.4); margin-bottom: var(--space-xl); font-weight: 300; }
 .access-contact-btn { display: inline-flex; align-items: center; gap: var(--space-sm); }
-.access-contact-hours {
-  margin-top: var(--space-lg);
-  color: oklch(0.98 0.003 60 / 0.4);
-  font-size: var(--font-size-sm);
-}
+.access-contact-hours { margin-top: var(--space-lg); color: oklch(0.98 0.003 60 / 0.25); font-size: var(--font-size-xs); font-weight: 300; }
 
 @media (max-width: 768px) {
   .access-layout { grid-template-columns: 1fr; }

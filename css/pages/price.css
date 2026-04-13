@@ -1,8 +1,9 @@
-/* ========== PRICE — 紅の値札 ========== */
+/* ========== PRICE ========== */
 .charge-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+  gap: 1px;
+  background: oklch(0.98 0.003 60 / 0.06);
   margin-bottom: var(--space-4xl);
 }
 
@@ -12,53 +13,50 @@
   text-align: center;
 }
 
-.charge-sub {
-  font-size: var(--font-size-xs);
-  opacity: .6;
-}
-
-.charge-tax {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-xs);
-  color: oklch(0.98 0.003 60 / 0.4);
-  letter-spacing: 0.1em;
-}
+.charge-sub { font-size: var(--font-size-xs); opacity: .5; }
+.charge-tax { font-size: var(--font-size-xs); color: oklch(0.98 0.003 60 / 0.3); }
 
 .charge-notice {
   margin-top: calc(-1 * var(--space-3xl));
   margin-bottom: var(--space-4xl);
 }
 
+.mt-xl { margin-top: var(--space-xl); }
+
 .price-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
-  margin-bottom: var(--space-5xl);
+  gap: 1px;
+  background: var(--color-border);
+  margin-bottom: var(--space-4xl);
 }
 
 .price-card {
   background: var(--color-white);
   padding: var(--space-3xl) var(--space-xl);
   text-align: center;
-  border: 1px solid var(--color-border);
+  border: none;
+  box-shadow: none;
   position: relative;
-  transition: all var(--transition-base);
+  transition: background var(--transition-fast);
 }
 
-.price-card:hover {
-  border-color: oklch(0.55 0.22 15 / 0.3);
-}
+.price-card:hover { transform: none; box-shadow: none; background: var(--color-bg-2); }
 
 .price-card.featured {
-  border-color: var(--color-primary);
+  background: var(--color-dark);
+  color: var(--color-white);
 }
+
+.price-card.featured .price-card-name { color: oklch(0.98 0.003 60 / 0.5); }
+.price-card.featured .price-card-time { color: oklch(0.98 0.003 60 / 0.3); }
+.price-card.featured .price-card-tax { color: oklch(0.98 0.003 60 / 0.3); }
 
 .price-card-badge {
   position: absolute;
-  top: -1px; left: -1px; right: -1px;
+  top: 0; left: 0; right: 0;
   background: var(--color-primary);
   color: var(--color-white);
-  font-family: var(--font-accent);
   font-size: var(--font-size-xs);
   font-weight: 400;
   padding: var(--space-xs) var(--space-md);
@@ -67,34 +65,38 @@
 }
 
 .price-card-name {
-  font-family: var(--font-accent);
+  font-family: var(--font-en);
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   letter-spacing: 0.15em;
-  margin-top: var(--space-xl);
+  font-style: italic;
+  margin-top: var(--space-lg);
 }
 
 .price-card-time {
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
   margin-bottom: var(--space-xl);
+  font-weight: 300;
 }
 
 .price-card-amount {
-  font-size: var(--font-size-5xl);
-  font-family: var(--font-display);
-  font-weight: 900;
-  color: var(--color-primary);
+  font-family: var(--font-en);
+  font-size: var(--font-size-4xl);
+  font-weight: 400;
+  color: var(--color-text);
   line-height: 1;
+  font-style: italic;
 }
 
+.price-card.featured .price-card-amount { color: var(--color-white); }
+
 .price-card-tax {
-  font-family: var(--font-accent);
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
   margin-top: var(--space-xs);
-  letter-spacing: 0.1em;
+  font-weight: 300;
 }
 
 .admission-box {
@@ -104,21 +106,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-5xl);
+  margin-bottom: var(--space-4xl);
 }
 
 .admission-box .label {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-base);
-  color: oklch(0.98 0.003 60 / 0.6);
-  letter-spacing: 0.1em;
+  font-size: var(--font-size-sm);
+  color: oklch(0.98 0.003 60 / 0.4);
+  letter-spacing: 0.15em;
+  font-weight: 300;
 }
 
 .admission-box .amount {
-  font-size: var(--font-size-5xl);
-  font-family: var(--font-display);
-  font-weight: 900;
-  color: var(--color-primary);
+  font-family: var(--font-en);
+  font-size: var(--font-size-4xl);
+  font-weight: 400;
+  color: var(--color-white);
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -132,7 +135,7 @@
   }
   .charge-grid {
     grid-template-columns: 1fr !important;
-    gap: var(--space-md) !important;
+    gap: 1px !important;
     margin-bottom: var(--space-2xl) !important;
   }
 }
