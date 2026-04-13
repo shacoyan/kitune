@@ -1,23 +1,25 @@
+/* ========== CONTACT — 繋がりの入口 ========== */
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: var(--space-3xl);
+  gap: var(--space-4xl);
   align-items: start;
 }
 
 .contact-info-box {
   background: var(--color-dark);
   color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
+  padding: var(--space-3xl);
   position: sticky;
   top: calc(var(--header-height) + var(--space-lg));
 }
 
 .contact-info-box h2 {
+  font-family: var(--font-display);
   color: var(--color-primary);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-xl);
+  font-weight: 900;
 }
 
 .contact-phone-btn {
@@ -25,27 +27,27 @@
   align-items: center;
   gap: var(--space-md);
   background: var(--color-primary);
-  color: var(--color-dark);
-  border-radius: var(--radius-lg);
+  color: var(--color-white);
   padding: var(--space-lg) var(--space-xl);
+  font-family: var(--font-display);
   font-size: var(--font-size-xl);
-  font-weight: bold;
+  font-weight: 900;
   text-decoration: none;
   margin-bottom: var(--space-xl);
-  transition: background var(--transition-fast), transform var(--transition-fast);
+  transition: background var(--transition-fast);
+  letter-spacing: 0.05em;
 }
 
 .contact-phone-btn:hover {
   background: var(--color-primary-dark);
-  color: var(--color-dark);
-  transform: scale(1.02);
+  color: var(--color-white);
 }
 
 .contact-phone-icon { font-size: 1.5rem; }
 
 .contact-hours {
   font-size: var(--font-size-sm);
-  color: rgba(255,255,255,0.6);
+  color: oklch(0.98 0.003 60 / 0.5);
   line-height: 2;
 }
 
@@ -53,25 +55,27 @@
 
 .contact-form-box {
   background: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
-  box-shadow: var(--shadow-sm);
+  padding: var(--space-3xl);
+  border: 1px solid var(--color-border);
 }
 
 .contact-form-box h2 {
+  font-family: var(--font-display);
   font-size: var(--font-size-2xl);
   margin-bottom: var(--space-xl);
+  font-weight: 900;
 }
 
 .required-mark {
   display: inline-block;
-  background: #e53e3e;
+  background: var(--color-primary);
   color: var(--color-white);
+  font-family: var(--font-accent);
   font-size: var(--font-size-xs);
   padding: 2px 6px;
-  border-radius: var(--radius-sm);
   margin-left: var(--space-sm);
   vertical-align: middle;
+  letter-spacing: 0.05em;
 }
 
 .contact-container-narrow-center {
@@ -85,6 +89,7 @@
 }
 
 .contact-section-title {
+  font-family: var(--font-display);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-lg);
 }
@@ -116,4 +121,3 @@
   .contact-layout { grid-template-columns: 1fr; }
   .contact-info-box { position: static; }
 }
-

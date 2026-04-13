@@ -1,6 +1,10 @@
+/* ========== PRIVACY ========== */
 .privacy-updated {
   margin-bottom: var(--space-2xl);
   color: var(--color-text-light);
+  font-family: var(--font-accent);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.1em;
 }
 
 .privacy-sections {
@@ -10,8 +14,10 @@
 }
 
 .privacy-section h2 {
+  font-family: var(--font-display);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-md);
+  font-weight: 700;
 }
 
 .privacy-list {

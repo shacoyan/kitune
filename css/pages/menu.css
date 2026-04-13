@@ -1,41 +1,40 @@
-/* ========== FILTER ========== */
+/* ========== FILTER — 選び取る ========== */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
   justify-content: center;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-4xl);
 }
 
 .filter-btn {
   padding: var(--space-sm) var(--space-xl);
-  border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
   background: var(--color-white);
-  font-size: var(--font-size-sm);
+  font-family: var(--font-accent);
+  font-size: var(--font-size-xs);
   color: var(--color-text-light);
   cursor: pointer;
   transition: all var(--transition-fast);
+  letter-spacing: 0.1em;
 }
 
 .filter-btn:hover, .filter-btn.active {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  color: var(--color-dark);
-  font-weight: bold;
+  color: var(--color-white);
 }
 
-/* ========== FLAVOR GRID ========== */
+/* ========== FLAVOR GRID — 煙の道標 ========== */
 .flavor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-lg);
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-5xl);
 }
 
 .flavor-card {
   background: var(--color-white);
-  border-radius: var(--radius-lg);
   padding: var(--space-lg);
   border: 1px solid var(--color-border);
   transition: all var(--transition-base);
@@ -43,15 +42,14 @@
 
 .flavor-card:hover {
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
 }
 
 .flavor-card.hidden { display: none; }
 
 .flavor-name {
+  font-family: var(--font-display);
   font-size: var(--font-size-base);
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-dark);
   margin-bottom: var(--space-xs);
 }
@@ -59,23 +57,25 @@
 .flavor-name-en {
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
-  font-family: var(--font-en);
+  font-family: var(--font-accent);
   margin-bottom: var(--space-sm);
+  letter-spacing: 0.05em;
 }
 
 .flavor-desc {
   font-size: var(--font-size-xs);
   color: var(--color-text-light);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* ========== DRINK / FOOD ========== */
+/* ========== DRINK / FOOD — 品書き ========== */
 .menu-section-title {
+  font-family: var(--font-display);
   font-size: var(--font-size-2xl);
   color: var(--color-dark);
-  border-left: 3px solid var(--color-primary);
-  padding-left: var(--space-md);
   margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid oklch(0.55 0.22 15 / 0.2);
 }
 
 .menu-list {
@@ -83,7 +83,6 @@
   flex-direction: column;
   gap: 0;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
@@ -99,11 +98,20 @@
 
 .menu-list-item:last-child { border-bottom: none; }
 
-.menu-item-name { font-weight: bold; color: var(--color-dark); }
-.menu-item-desc { font-size: var(--font-size-xs); color: var(--color-text-light); margin-top: 2px; }
+.menu-item-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.menu-item-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  margin-top: 2px;
+}
 .menu-item-price {
+  font-family: var(--font-display);
   font-size: var(--font-size-lg);
-  font-weight: bold;
+  font-weight: 900;
   color: var(--color-primary);
   white-space: nowrap;
 }
@@ -114,7 +122,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3xl);
   align-items: start;
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-5xl);
 }
 
 .menu-content-grid:last-child {
@@ -125,27 +133,24 @@
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
 
 .menu-section-desc {
   color: var(--color-text-light);
   margin-bottom: var(--space-2xl);
+  line-height: 2;
 }
 
 .menu-highlight-banner {
   background: var(--color-primary);
-  color: #fff;
-  border-radius: var(--radius-md);
+  color: var(--color-white);
   padding: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-xl);
-  font-weight: bold;
+  font-family: var(--font-display);
+  font-weight: 700;
   text-align: center;
-}
-
-.mt-3xl {
-  margin-top: var(--space-3xl);
+  letter-spacing: 0.05em;
 }
 
 @media (max-width: 768px) {
@@ -157,7 +162,6 @@
     height: 240px;
     width: 100%;
     object-fit: cover;
-    border-radius: var(--radius-md);
   }
   .menu-content-grid { grid-template-columns: 1fr; }
 }
@@ -166,4 +170,3 @@
   .menu-food-grid img   { order: 2; }
   .menu-food-grid > div { order: 1; }
 }
-

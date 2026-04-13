@@ -1,17 +1,24 @@
+/* ========== ABOUT — 狐の物語 ========== */
 .about-concept {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4xl);
   align-items: center;
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-5xl);
 }
 
 .about-concept-text h2 {
+  font-family: var(--font-display);
   font-size: var(--font-size-3xl);
   margin-bottom: var(--space-lg);
+  font-weight: 900;
+  letter-spacing: 0.05em;
 }
 
-.about-concept-text p { color: var(--color-text-light); }
+.about-concept-text p {
+  color: var(--color-text-light);
+  line-height: 2;
+}
 
 .about-concept-img {
   width: 100%;
@@ -19,7 +26,6 @@
   object-fit: cover;
   aspect-ratio: 4/3;
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
-  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -31,13 +37,12 @@
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .gallery-item {
   aspect-ratio: 4/3;
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
-  border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
 }
@@ -55,24 +60,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(201,168,76,0.4);
+  color: oklch(0.55 0.22 15 / 0.3);
   font-size: 2rem;
 }
 
 .staff-message {
   background: var(--color-dark);
   color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3xl);
+  padding: var(--space-4xl);
   text-align: center;
   position: relative;
 }
 
 .staff-message::before {
   content: '"';
-  font-family: var(--font-en);
-  font-size: 8rem;
-  color: rgba(201,168,76,0.15);
+  font-family: var(--font-display);
+  font-size: 10rem;
+  color: oklch(0.55 0.22 15 / 0.08);
   position: absolute;
   top: -20px;
   left: var(--space-2xl);
@@ -80,9 +84,10 @@
 }
 
 .staff-message blockquote {
+  font-family: var(--font-body);
   font-size: var(--font-size-lg);
-  color: rgba(255,255,255,0.85);
-  line-height: var(--line-height-base);
+  color: oklch(0.98 0.003 60 / 0.8);
+  line-height: 2;
   margin-bottom: var(--space-xl);
   position: relative;
   z-index: 1;
@@ -91,20 +96,9 @@
 .staff-message cite {
   font-style: normal;
   color: var(--color-primary);
+  font-family: var(--font-accent);
   font-size: var(--font-size-sm);
-}
-
-/* === Extracted Utility Classes === */
-
-.section-bg-2 {
-  background: var(--color-bg-2);
-}
-
-.card-img-top {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  letter-spacing: 0.1em;
 }
 
 .gallery-img {
@@ -113,17 +107,11 @@
   object-fit: cover;
 }
 
-.container-narrow {
-  max-width: 800px;
-}
-
-.mt-3xl {
-  margin-top: var(--space-3xl);
-}
-
 .subsection-title {
+  font-family: var(--font-display);
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-xl);
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
